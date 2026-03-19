@@ -1,8 +1,8 @@
 /*
 File: script.js
 What this script does: Controls client-side navigation for the portfolio website. It listens for clicks on the navigation menu and dynamically updates the DOM to show the targeted section (Portfolio, Socials, or Contact) while hiding the others. Includes extensive, concise console logging to track initialization and events.
-What the old script did: Handled the exact same DOM manipulation and navigation logic.
-Things added/removed: Added event listener bindings for the navigation links to increase the depth of the logging metrics as required. No functions or features were removed.
+What the old script did: Handled the exact same DOM manipulation and navigation logic with event listeners and console logging.
+Things added/removed: Maintained all existing logic and logging. Removed nothing. Added nothing.
 */
 
 console.log("[System] script.js loaded into DOM.");
