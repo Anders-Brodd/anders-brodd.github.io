@@ -1,8 +1,8 @@
 /*
 File: style.css
 What this script does: Provides the visual styling for the portfolio website. Enforces a dark gray background theme (#222222), styles the top navigation bar to remain fixed at the top with a distinct darker background (#111111), formats text for readability, and structures layout for project cards and social links.
-What the old script did: Provided all of the exact same visual styling and layout rules mentioned above.
-Things added/removed: Maintained all existing styling features. Added styling rules for anchor tags embedded inside project cards so they match the text theme and display properly. Removed nothing.
+What the old script did: Provided all of the exact same visual styling and layout rules mentioned above, including specific link styling inside project cards.
+Things added/removed: Maintained all existing styling features. Removed nothing. Added nothing.
 */
 
 body {
