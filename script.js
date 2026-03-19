@@ -1,31 +1,43 @@
 /*
 File: script.js
-Description: This script controls the client-side navigation for the portfolio website. It listens for clicks on the navigation menu and dynamically updates the DOM to show the targeted section (Portfolio, Socials, or Contact) while hiding the others. It includes detailed console logging to track the initialization state and navigation events.
+What this script does: Controls client-side navigation for the portfolio website. It listens for clicks on the navigation menu and dynamically updates the DOM to show the targeted section (Portfolio, Socials, or Contact) while hiding the others. Includes extensive, concise console logging to track initialization and events.
+What the old script did: Handled the exact same DOM manipulation and navigation logic.
+Things added/removed: Added event listener bindings for the navigation links to increase the depth of the logging metrics as required. No functions or features were removed.
 */
 
-console.log("[Init] script.js loaded into DOM.");
+console.log("[System] script.js loaded into DOM.");
 
 function showSection(sectionId) {
-    console.log(`[Nav] Request received to display section ID: ${sectionId}`);
+    console.log(`[Action] showSection triggered for target ID: ${sectionId}`);
     
     const sections = document.querySelectorAll('.page-section');
-    console.log(`[Nav] Located ${sections.length} page sections in DOM.`);
+    console.log(`[Query] Found ${sections.length} elements with class .page-section.`);
 
     sections.forEach(section => {
         if (section.id === sectionId) {
             section.style.display = 'block';
-            console.log(`[Nav] State updated: Section ID ${section.id} is now VISIBLE.`);
+            console.log(`[State] Section ID '${section.id}' set to block (VISIBLE).`);
         } else {
             section.style.display = 'none';
-            console.log(`[Nav] State updated: Section ID ${section.id} is now HIDDEN.`);
+            console.log(`[State] Section ID '${section.id}' set to none (HIDDEN).`);
         }
     });
     
-    console.log(`[Nav] Navigation routine completed for target: ${sectionId}`);
+    console.log(`[Complete] Navigation routine finished for: ${sectionId}`);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("[Init] DOM fully parsed and loaded.");
-    console.log("[Init] Triggering default view rendering.");
+    console.log("[Event] DOMContentLoaded fired. DOM fully parsed.");
+    
+    const navLinks = document.querySelectorAll('.nav-links a');
+    console.log(`[Query] Found ${navLinks.length} navigation links.`);
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            console.log(`[Event] Click detected on nav link pointing to: ${e.target.getAttribute('href')}`);
+        });
+    });
+
+    console.log("[Action] Triggering default view rendering (portfolio).");
     showSection('portfolio');
 });
