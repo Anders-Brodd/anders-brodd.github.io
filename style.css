@@ -1,0 +1,94 @@
+/*
+File: style.css
+Description: This script provides the visual styling for the portfolio website. It enforces a dark gray background theme (#222222), styles the top navigation bar to remain fixed at the top with a distinct darker background (#111111), formats the text for high contrast readability, and structures the layout for project cards and social link lists.
+*/
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: #111111;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #888888;
+}
+
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #333333;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    border-left: 4px solid #555555;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.social-list {
+    list-style: none;
+    padding: 0;
+}
+
+.social-list li {
+    margin-bottom: 1rem;
+    background-color: #333333;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.social-list a, .email-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.social-list a:hover, .email-link:hover {
+    text-decoration: underline;
+}
+
+.email-link {
+    display: inline-block;
+    background-color: #333333;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+}
