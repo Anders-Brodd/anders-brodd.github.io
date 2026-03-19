@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anders Brodd - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Anders Brodd</div>
+        <ul class="nav-links">
+            <li><a href="#portfolio" onclick="showSection('portfolio')">Portfolio</a></li>
+            <li><a href="#socials" onclick="showSection('socials')">Socials</a></li>
+            <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="portfolio" class="page-section">
+            <h1>Portfolio</h1>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Private Kitty Shopify Store</h3>
+                    <p>Freelance e-commerce website development and setup using the Shopify platform.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Future Project</h3>
+                    <p>Placeholder for upcoming development or server management projects.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="socials" class="page-section" style="display: none;">
+            <h1>Social Links</h1>
+            <ul class="social-list">
+                <li><a href="https://github.com/frogdogg" target="_blank">GitHub (frogdogg)</a></li>
+                <li><a href="#" target="_blank">LinkedIn</a></li>
+                <li><a href="#" target="_blank">Steam (4our1999)</a></li>
+                <li><a href="#" target="_blank">PlayStation Network (musketeers_4our)</a></li>
+            </ul>
+        </section>
+
+        <section id="contact" class="page-section" style="display: none;">
+            <h1>Contact Me</h1>
+            <p>If you'd like to get in touch, please send an email to:</p>
+            <a href="mailto:your.email@example.com" class="email-link">your.email@example.com</a>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
