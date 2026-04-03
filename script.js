@@ -9,9 +9,9 @@ const REPO_CONFIG = Object.freeze({
 
 const DEFAULT_CONTENT = {
     profile: {
-        introLabel: "Developer and photographer",
-        introHeading: "Short intro first, then the portfolio starts moving.",
-        introText: "A short intro at the top of the page, then an about section, then the animated portfolio sections.",
+        introLabel: "Hello, I'm Anders Brodd",
+        introHeading: "A web and game developer.",
+        introText: "I do photography on the side and I'm open to commissions.",
         aboutHeading: "About me",
         aboutText: "I build clean front-end work, keep layouts focused, and want the portfolio sections below to do the heavy lifting."
     },
@@ -218,9 +218,9 @@ function renderSite(content) {
 }
 
 function renderProfile(profile) {
-    dom.introLabel.textContent = profile.introLabel || "Developer and photographer";
-    dom.introHeading.textContent = profile.introHeading || "Short intro first, then the portfolio starts moving.";
-    dom.introText.textContent = profile.introText || "A short intro at the top of the page, then an about section, then the animated portfolio sections.";
+    dom.introLabel.textContent = profile.introLabel || "Hello, I'm Anders Brodd";
+    dom.introHeading.textContent = profile.introHeading || "A web and game developer.";
+    dom.introText.textContent = profile.introText || "I do photography on the side and I'm open to commissions.";
     dom.aboutHeading.textContent = profile.aboutHeading || "About me";
     dom.aboutText.textContent = profile.aboutText || "Add a short about section in the admin editor.";
 }
@@ -230,9 +230,10 @@ function renderProjects(projects) {
         .map((project, index) => {
             const reveal = index % 2 === 0 ? "right" : "left";
             const cardClass = index % 2 === 0 ? "project-card" : "project-card project-card--reverse";
+            const sideClass = index % 2 === 0 ? "scroll-card--right" : "scroll-card--left";
 
             return `
-                <article class="${cardClass} frosted-card scroll-card" data-reveal="${reveal}" data-scroll-card style="--stagger: ${index};">
+                <article class="${cardClass} frosted-card scroll-card ${sideClass}" data-reveal="${reveal}" data-scroll-card style="--stagger: ${index};">
                     <div class="project-media">
                         ${renderImageBlock(project.image, project.imageAlt || project.title, project.title)}
                     </div>
@@ -256,7 +257,7 @@ function renderPhotos(photos) {
     dom.photosList.innerHTML = photos
         .map(
             (photo, index) => `
-                <article class="photo-card frosted-card scroll-card" data-reveal="up" data-scroll-card style="--stagger: ${index};">
+                <article class="photo-card frosted-card" data-photo-stack-card style="--stack-index: ${index}; --stack-z: ${photos.length - index};">
                     <div class="photo-media">
                         ${renderImageBlock(photo.image, photo.imageAlt || photo.title, photo.title)}
                     </div>
@@ -276,12 +277,12 @@ function renderPhotos(photos) {
 
 function renderSocials(socials) {
     dom.socialsList.innerHTML = socials
-        .map((social) => {
+        .map((social, index) => {
             const safeUrl = sanitizeUrl(social.url, { allowRelative: false, allowMailto: false });
 
             if (!safeUrl) {
                 return `
-                    <div class="social-item social-item--static">
+                    <div class="social-item social-item--static" data-reveal="bottom" style="--stagger: ${index};">
                         <span>${escapeHtml(social.label)}</span>
                         <strong>${escapeHtml(social.value)}</strong>
                     </div>
@@ -289,7 +290,7 @@ function renderSocials(socials) {
             }
 
             return `
-                <a class="social-item" href="${escapeAttribute(safeUrl)}" target="_blank" rel="noreferrer">
+                <a class="social-item" data-reveal="bottom" style="--stagger: ${index};" href="${escapeAttribute(safeUrl)}" target="_blank" rel="noreferrer">
                     <span>${escapeHtml(social.label)}</span>
                     <strong>${escapeHtml(social.value)}</strong>
                 </a>
@@ -947,11 +948,13 @@ function setupRevealObserver() {
 
     const targets = document.querySelectorAll("[data-reveal]");
     const scrollCards = document.querySelectorAll("[data-scroll-card]");
+    const photoCards = document.querySelectorAll("[data-photo-stack-card]");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion) {
         targets.forEach((element) => element.classList.add("is-visible"));
         scrollCards.forEach((element) => element.classList.add("is-in-view"));
+        photoCards.forEach((element) => element.style.setProperty("--stack-progress", "0"));
         return;
     }
 
@@ -972,10 +975,15 @@ function setupRevealObserver() {
 
     targets.forEach((element) => state.revealObserver.observe(element));
     updateScrollCards();
+    updatePhotoStack();
     window.removeEventListener("scroll", updateScrollCards);
     window.addEventListener("scroll", updateScrollCards, { passive: true });
+    window.removeEventListener("scroll", updatePhotoStack);
+    window.addEventListener("scroll", updatePhotoStack, { passive: true });
     window.removeEventListener("resize", updateScrollCards);
     window.addEventListener("resize", updateScrollCards);
+    window.removeEventListener("resize", updatePhotoStack);
+    window.addEventListener("resize", updatePhotoStack);
 }
 
 function updateScrollCards() {
@@ -987,6 +995,19 @@ function updateScrollCards() {
         const midpoint = rect.top + rect.height / 2;
         const inView = midpoint < viewportHeight * 0.86 && rect.bottom > viewportHeight * 0.14;
         card.classList.toggle("is-in-view", inView);
+    });
+}
+
+function updatePhotoStack() {
+    const cards = document.querySelectorAll("[data-photo-stack-card]");
+    const stickyTop = window.innerWidth < 720 ? 88 : 112;
+
+    cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const progress = clamp((stickyTop - rect.top) / 260, 0, 1);
+        const fadeAmount = index === cards.length - 1 ? 0 : progress;
+        card.style.setProperty("--stack-progress", fadeAmount.toFixed(3));
+        card.classList.toggle("is-active", rect.top <= stickyTop + 28 && rect.bottom > stickyTop + 80);
     });
 }
 
@@ -1197,6 +1218,10 @@ function bytesToBase64(bytes) {
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
 }
 
 function deepClone(value) {
