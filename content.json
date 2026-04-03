@@ -1,4 +1,17 @@
 {
+  "profile": {
+    "introLabel": "Developer and photographer",
+    "introHeading": "I build clean web work and let the portfolio move when you scroll.",
+    "introText": "Short, calm intro at the top. Then it moves into a simple about-me section before the animated portfolio starts.",
+    "aboutHeading": "About me",
+    "aboutText": "I am Anders Brodd. I like polished front-end work, clear layouts, and photography that feels quiet and intentional. This site keeps the top simple, then moves into scrolling project and photo sections lower down the page."
+  },
+  "sections": {
+    "development": true,
+    "photography": true,
+    "socials": true,
+    "contact": true
+  },
   "projects": [
     {
       "id": "project-private-kitty",

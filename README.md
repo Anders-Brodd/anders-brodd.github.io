@@ -18,6 +18,8 @@ What the admin editor can do:
 - Add, remove, and edit photography entries.
 - Update socials.
 - Update contact info.
+- Edit the short intro and about section.
+- Toggle major sections on or off.
 - Upload local images for projects and photography. Uploaded files are committed into the repo under `media/projects` and `media/photos`.
 
 ## Token setup
@@ -34,5 +36,6 @@ Recommended option:
 ## Notes
 
 - The token is kept in memory for the current browser tab only.
+- Enabled sections still hide automatically when they have no content.
 - Removing an item from the editor does not automatically delete previously uploaded image files from the repository.
 - If you want to change the repository target later, update the `REPO_CONFIG` object in `script.js`.

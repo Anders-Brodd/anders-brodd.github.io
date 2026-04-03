@@ -17,86 +17,81 @@
         <nav class="navbar">
             <a class="nav-brand" href="#top">Anders Brodd</a>
             <div class="nav-links">
-                <a href="#development">Development</a>
-                <a href="#photography">Photography</a>
-                <a href="#connect">Connect</a>
+                <a href="#about">About</a>
+                <a href="#development" data-nav-link="development">Portfolio</a>
+                <a href="#photography" data-nav-link="photography">Photography</a>
+                <a href="#connect" data-nav-link="connect">Connect</a>
             </div>
         </nav>
 
         <header class="hero" id="top">
-            <div class="hero-content">
+            <div class="hero-content hero-content--compact">
                 <div class="hero-copy" data-reveal="up">
-                    <p class="eyebrow">Winter portfolio</p>
-                    <h1>Shipping calm interfaces and crisp visuals under a winter light.</h1>
-                    <p class="hero-text">
-                        I am Anders Brodd. I build polished digital experiences, showcase development work with detail,
-                        and frame photography with the same clean attention to atmosphere.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="button button--primary" href="#development">See projects</a>
-                        <a class="button button--secondary" href="#photography">View photography</a>
-                    </div>
-                </div>
-
-                <div class="hero-panel frosted-card" data-reveal="right">
-                    <p class="card-label">Live snapshot</p>
-                    <ul class="hero-metrics" id="hero-metrics"></ul>
-                    <p class="hero-note" id="hero-note"></p>
+                    <p class="eyebrow" id="intro-label"></p>
+                    <h1 id="intro-heading"></h1>
+                    <p class="hero-text" id="intro-text"></p>
                 </div>
             </div>
 
             <div class="snow-field" data-snow="hero" aria-hidden="true"></div>
-            <a class="scroll-cue" href="#development">Scroll for the showcase</a>
+            <a class="scroll-cue" href="#about">Start with the intro</a>
         </header>
 
+        <section class="content-section content-section--about" id="about">
+            <div class="about-card frosted-card" data-reveal="up">
+                <p class="eyebrow">About me</p>
+                <h2 id="about-heading"></h2>
+                <p class="about-text" id="about-text"></p>
+            </div>
+        </section>
+
         <main>
-            <section class="content-section" id="development">
+            <section class="content-section content-section--portfolio" id="development" data-section="development">
                 <div class="section-copy" data-reveal="up">
-                    <p class="eyebrow">Development</p>
-                    <h2>Projects that slide in with the context, visuals, and details beside them.</h2>
+                    <p class="eyebrow">Portfolio</p>
+                    <h2>Projects slide in as you scroll, with the details and visuals moving with them.</h2>
                     <p>
-                        Each project enters as you scroll, with room for screenshots, short summaries, build notes,
-                        and a direct link out to the live work.
+                        This is the animated part of the page: each project card shifts and settles into place as the
+                        viewport reaches it.
                     </p>
                 </div>
                 <div class="showcase-list" id="projects-list"></div>
             </section>
 
-            <section class="content-section content-section--gallery" id="photography">
+            <section class="content-section content-section--gallery" id="photography" data-section="photography">
                 <div class="section-copy" data-reveal="up">
                     <p class="eyebrow">Photography</p>
-                    <h2>Quiet frames, cold air, and room for your own image stories.</h2>
+                    <h2>Photography keeps the same smooth motion, but with room for quieter image stories.</h2>
                     <p>
-                        Use the admin panel to upload new images or link to hosted assets, then let the gallery unfold
-                        as visitors move down the page.
+                        Add your images in the editor and this section appears only when there is work to show.
                     </p>
                 </div>
                 <div class="photo-grid" id="photos-list"></div>
             </section>
 
-            <section class="content-section content-section--contact" id="connect">
+            <section class="content-section content-section--contact" id="connect" data-section="connect">
                 <div class="section-copy" data-reveal="up">
                     <p class="eyebrow">Connect</p>
-                    <h2>Social links and contact details stay editable from the site itself.</h2>
+                    <h2>Socials and contact stay editable, and either block can be hidden when you do not need it.</h2>
                     <p>
-                        The footer sign-in opens an admin editor that updates projects, photography, socials, and your
-                        contact block directly in the GitHub Pages repository.
+                        The admin editor lets you switch categories on and off manually, and empty ones disappear from
+                        the page automatically.
                     </p>
                 </div>
 
-                <div class="connect-grid">
-                    <div class="contact-card frosted-card" data-reveal="left">
+                <div class="connect-grid" id="connect-grid">
+                    <div class="contact-card frosted-card" data-reveal="left" data-section-card="contact">
                         <p class="card-label">Contact</p>
                         <h3 id="contact-heading"></h3>
                         <a class="contact-link" id="contact-email" href="#"></a>
                         <p class="contact-note" id="contact-note"></p>
-                        <div class="contact-meta">
+                        <div class="contact-meta" id="contact-meta">
                             <span id="contact-location"></span>
                             <span id="contact-availability"></span>
                         </div>
                     </div>
 
-                    <div class="social-card frosted-card" data-reveal="right">
+                    <div class="social-card frosted-card" data-reveal="right" data-section-card="socials">
                         <p class="card-label">Socials</p>
                         <div class="social-list" id="socials-list"></div>
                     </div>
@@ -142,6 +137,59 @@
             </section>
 
             <form class="admin-editor" id="admin-editor" hidden>
+                <section class="editor-section editor-section--compact">
+                    <div class="editor-section__header">
+                        <h3>Intro and about</h3>
+                    </div>
+                    <div class="editor-contact-grid">
+                        <label>
+                            <span>Intro label</span>
+                            <input type="text" name="introLabel" placeholder="Developer and photographer">
+                        </label>
+                        <label>
+                            <span>Intro heading</span>
+                            <input type="text" name="introHeading" placeholder="Short intro at the top of the page">
+                        </label>
+                        <label class="editor-field--full">
+                            <span>Intro text</span>
+                            <textarea name="introText" placeholder="A short intro before the portfolio starts."></textarea>
+                        </label>
+                        <label>
+                            <span>About heading</span>
+                            <input type="text" name="aboutHeading" placeholder="About me">
+                        </label>
+                        <label class="editor-field--full">
+                            <span>About text</span>
+                            <textarea name="aboutText" placeholder="A short about-me section before the portfolio animation begins."></textarea>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="editor-section editor-section--compact">
+                    <div class="editor-section__header">
+                        <h3>Section visibility</h3>
+                    </div>
+                    <div class="editor-toggle-grid">
+                        <label class="toggle-row">
+                            <span>Development portfolio</span>
+                            <input type="checkbox" name="sectionDevelopment">
+                        </label>
+                        <label class="toggle-row">
+                            <span>Photography</span>
+                            <input type="checkbox" name="sectionPhotography">
+                        </label>
+                        <label class="toggle-row">
+                            <span>Socials</span>
+                            <input type="checkbox" name="sectionSocials">
+                        </label>
+                        <label class="toggle-row">
+                            <span>Contact</span>
+                            <input type="checkbox" name="sectionContact">
+                        </label>
+                    </div>
+                    <p class="admin-meta">Enabled sections still hide automatically if they are empty.</p>
+                </section>
+
                 <section class="editor-section">
                     <div class="editor-section__header">
                         <h3>Development projects</h3>
