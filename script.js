@@ -120,11 +120,13 @@ const state = {
 const dom = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
-    document.body.classList.add("has-animations");
     cacheDom();
     bindEvents();
     seedSnow("hero", 22);
     seedSnow("footer", 10);
+    requestAnimationFrame(() => {
+        document.body.classList.add("has-animations");
+    });
     await loadContent();
 });
 
