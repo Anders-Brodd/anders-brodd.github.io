@@ -178,12 +178,12 @@ p {
 
 .hero {
     width: var(--container);
-    min-height: 100vh;
+    min-height: auto;
     margin: 0 auto;
-    padding: 8.5rem 0 3.5rem;
+    padding: 6.2rem 0 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .hero-content {
@@ -488,6 +488,10 @@ body.has-animations .scroll-card.is-in-view {
 
 .content-section--gallery {
     padding-top: 5.5rem;
+}
+
+.content-section--portfolio {
+    padding-top: 2.2rem;
 }
 
 .photo-grid {
@@ -893,7 +897,8 @@ textarea:focus {
     }
 
     .hero {
-        padding-top: 10rem;
+        padding-top: 7.4rem;
+        padding-bottom: 0.8rem;
     }
 
     .section-copy h2,
