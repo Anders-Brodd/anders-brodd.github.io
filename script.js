@@ -8,6 +8,19 @@ const REPO_CONFIG = Object.freeze({
 });
 
 const DEFAULT_CONTENT = {
+    profile: {
+        introLabel: "Developer and photographer",
+        introHeading: "Short intro first, then the portfolio starts moving.",
+        introText: "A short intro at the top of the page, then an about section, then the animated portfolio sections.",
+        aboutHeading: "About me",
+        aboutText: "I build clean front-end work, keep layouts focused, and want the portfolio sections below to do the heavy lifting."
+    },
+    sections: {
+        development: true,
+        photography: true,
+        socials: true,
+        contact: true
+    },
     projects: [
         {
             id: "project-private-kitty",
@@ -118,8 +131,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function cacheDom() {
-    dom.heroMetrics = document.getElementById("hero-metrics");
-    dom.heroNote = document.getElementById("hero-note");
+    dom.introLabel = document.getElementById("intro-label");
+    dom.introHeading = document.getElementById("intro-heading");
+    dom.introText = document.getElementById("intro-text");
+    dom.aboutHeading = document.getElementById("about-heading");
+    dom.aboutText = document.getElementById("about-text");
+    dom.aboutSection = document.getElementById("about");
+    dom.developmentSection = document.getElementById("development");
+    dom.photographySection = document.getElementById("photography");
+    dom.connectSection = document.getElementById("connect");
+    dom.connectGrid = document.getElementById("connect-grid");
     dom.projectsList = document.getElementById("projects-list");
     dom.photosList = document.getElementById("photos-list");
     dom.socialsList = document.getElementById("socials-list");
@@ -141,6 +162,11 @@ function cacheDom() {
     dom.previewContent = document.getElementById("preview-content");
     dom.publishContent = document.getElementById("publish-content");
     dom.adminSaveStatus = document.getElementById("admin-save-status");
+    dom.navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
+    dom.sectionCards = {
+        contact: document.querySelector("[data-section-card='contact']"),
+        socials: document.querySelector("[data-section-card='socials']")
+    };
 }
 
 function bindEvents() {
@@ -180,42 +206,23 @@ async function loadContent() {
 }
 
 function renderSite(content) {
-    renderHero(content);
-    renderProjects(content.projects);
-    renderPhotos(content.photos);
-    renderSocials(content.socials);
-    renderContact(content.contact);
+    const visibility = getSectionVisibility(content);
+
+    renderProfile(content.profile);
+    renderProjects(visibility.showDevelopment ? content.projects : []);
+    renderPhotos(visibility.showPhotography ? content.photos : []);
+    renderSocials(visibility.showSocials ? content.socials : []);
+    renderContact(visibility.showContact ? content.contact : {});
+    applySectionVisibility(visibility);
     setupRevealObserver();
 }
 
-function renderHero(content) {
-    const metrics = [
-        {
-            label: "Live projects",
-            value: String(content.projects.length).padStart(2, "0")
-        },
-        {
-            label: "Photo entries",
-            value: String(content.photos.length).padStart(2, "0")
-        },
-        {
-            label: "Availability",
-            value: content.contact.availability || "Open"
-        }
-    ];
-
-    dom.heroMetrics.innerHTML = metrics
-        .map(
-            (metric) => `
-                <li>
-                    <span class="metric-label">${escapeHtml(metric.label)}</span>
-                    <span class="metric-value">${escapeHtml(metric.value)}</span>
-                </li>
-            `
-        )
-        .join("");
-
-    dom.heroNote.textContent = content.contact.note || "Open for new work and thoughtful collaborations.";
+function renderProfile(profile) {
+    dom.introLabel.textContent = profile.introLabel || "Developer and photographer";
+    dom.introHeading.textContent = profile.introHeading || "Short intro first, then the portfolio starts moving.";
+    dom.introText.textContent = profile.introText || "A short intro at the top of the page, then an about section, then the animated portfolio sections.";
+    dom.aboutHeading.textContent = profile.aboutHeading || "About me";
+    dom.aboutText.textContent = profile.aboutText || "Add a short about section in the admin editor.";
 }
 
 function renderProjects(projects) {
@@ -225,7 +232,7 @@ function renderProjects(projects) {
             const cardClass = index % 2 === 0 ? "project-card" : "project-card project-card--reverse";
 
             return `
-                <article class="${cardClass} frosted-card" data-reveal="${reveal}" style="--stagger: ${index};">
+                <article class="${cardClass} frosted-card scroll-card" data-reveal="${reveal}" data-scroll-card style="--stagger: ${index};">
                     <div class="project-media">
                         ${renderImageBlock(project.image, project.imageAlt || project.title, project.title)}
                     </div>
@@ -249,7 +256,7 @@ function renderPhotos(photos) {
     dom.photosList.innerHTML = photos
         .map(
             (photo, index) => `
-                <article class="photo-card frosted-card" data-reveal="up" style="--stagger: ${index};">
+                <article class="photo-card frosted-card scroll-card" data-reveal="up" data-scroll-card style="--stagger: ${index};">
                     <div class="photo-media">
                         ${renderImageBlock(photo.image, photo.imageAlt || photo.title, photo.title)}
                     </div>
@@ -329,6 +336,15 @@ function renderAdminEditor() {
     dom.adminPhotos.innerHTML = renderPhotoEditors(draft.photos);
     dom.adminSocials.innerHTML = renderSocialEditors(draft.socials);
 
+    dom.adminEditor.elements.introLabel.value = draft.profile.introLabel || "";
+    dom.adminEditor.elements.introHeading.value = draft.profile.introHeading || "";
+    dom.adminEditor.elements.introText.value = draft.profile.introText || "";
+    dom.adminEditor.elements.aboutHeading.value = draft.profile.aboutHeading || "";
+    dom.adminEditor.elements.aboutText.value = draft.profile.aboutText || "";
+    dom.adminEditor.elements.sectionDevelopment.checked = Boolean(draft.sections.development);
+    dom.adminEditor.elements.sectionPhotography.checked = Boolean(draft.sections.photography);
+    dom.adminEditor.elements.sectionSocials.checked = Boolean(draft.sections.socials);
+    dom.adminEditor.elements.sectionContact.checked = Boolean(draft.sections.contact);
     dom.adminEditor.elements.contactHeading.value = draft.contact.heading || "";
     dom.adminEditor.elements.contactEmail.value = draft.contact.email || "";
     dom.adminEditor.elements.contactLocation.value = draft.contact.location || "";
@@ -769,6 +785,19 @@ function collectDraftFromEditor() {
     })).filter((social) => hasContent(social.label, social.value, social.url));
 
     return normalizeContent({
+        profile: {
+            introLabel: dom.adminEditor.elements.introLabel.value.trim(),
+            introHeading: dom.adminEditor.elements.introHeading.value.trim(),
+            introText: dom.adminEditor.elements.introText.value.trim(),
+            aboutHeading: dom.adminEditor.elements.aboutHeading.value.trim(),
+            aboutText: dom.adminEditor.elements.aboutText.value.trim()
+        },
+        sections: {
+            development: dom.adminEditor.elements.sectionDevelopment.checked,
+            photography: dom.adminEditor.elements.sectionPhotography.checked,
+            socials: dom.adminEditor.elements.sectionSocials.checked,
+            contact: dom.adminEditor.elements.sectionContact.checked
+        },
         projects,
         photos,
         socials,
@@ -789,25 +818,34 @@ function getFieldValue(scope, name) {
 
 function normalizeContent(content) {
     const normalized = {
+        profile: normalizeProfile(content && content.profile ? content.profile : DEFAULT_CONTENT.profile),
+        sections: normalizeSections(content && content.sections ? content.sections : DEFAULT_CONTENT.sections),
         projects: Array.isArray(content && content.projects) ? content.projects.map(normalizeProject) : deepClone(DEFAULT_CONTENT.projects),
         photos: Array.isArray(content && content.photos) ? content.photos.map(normalizePhoto) : deepClone(DEFAULT_CONTENT.photos),
         socials: Array.isArray(content && content.socials) ? content.socials.map(normalizeSocial) : deepClone(DEFAULT_CONTENT.socials),
         contact: normalizeContact(content && content.contact ? content.contact : DEFAULT_CONTENT.contact)
     };
 
-    if (!normalized.projects.length) {
-        normalized.projects = [normalizeProject({ id: createId("project") })];
-    }
-
-    if (!normalized.photos.length) {
-        normalized.photos = [normalizePhoto({ id: createId("photo") })];
-    }
-
-    if (!normalized.socials.length) {
-        normalized.socials = [normalizeSocial({ id: createId("social") })];
-    }
-
     return normalized;
+}
+
+function normalizeProfile(profile = {}) {
+    return {
+        introLabel: String(profile.introLabel || DEFAULT_CONTENT.profile.introLabel),
+        introHeading: String(profile.introHeading || DEFAULT_CONTENT.profile.introHeading),
+        introText: String(profile.introText || DEFAULT_CONTENT.profile.introText),
+        aboutHeading: String(profile.aboutHeading || DEFAULT_CONTENT.profile.aboutHeading),
+        aboutText: String(profile.aboutText || DEFAULT_CONTENT.profile.aboutText)
+    };
+}
+
+function normalizeSections(sections = {}) {
+    return {
+        development: sections.development !== false,
+        photography: sections.photography !== false,
+        socials: sections.socials !== false,
+        contact: sections.contact !== false
+    };
 }
 
 function normalizeProject(project = {}, index = 0) {
@@ -908,10 +946,12 @@ function setupRevealObserver() {
     }
 
     const targets = document.querySelectorAll("[data-reveal]");
+    const scrollCards = document.querySelectorAll("[data-scroll-card]");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion) {
         targets.forEach((element) => element.classList.add("is-visible"));
+        scrollCards.forEach((element) => element.classList.add("is-in-view"));
         return;
     }
 
@@ -931,6 +971,83 @@ function setupRevealObserver() {
     );
 
     targets.forEach((element) => state.revealObserver.observe(element));
+    updateScrollCards();
+    window.removeEventListener("scroll", updateScrollCards);
+    window.addEventListener("scroll", updateScrollCards, { passive: true });
+    window.removeEventListener("resize", updateScrollCards);
+    window.addEventListener("resize", updateScrollCards);
+}
+
+function updateScrollCards() {
+    const cards = document.querySelectorAll("[data-scroll-card]");
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+        const inView = midpoint < viewportHeight * 0.86 && rect.bottom > viewportHeight * 0.14;
+        card.classList.toggle("is-in-view", inView);
+    });
+}
+
+function getSectionVisibility(content) {
+    const sections = normalizeSections(content.sections);
+    const showDevelopment = sections.development && hasProjectContent(content.projects);
+    const showPhotography = sections.photography && hasPhotoContent(content.photos);
+    const showSocials = sections.socials && hasSocialContent(content.socials);
+    const showContact = sections.contact && hasContactContent(content.contact);
+
+    return {
+        showDevelopment,
+        showPhotography,
+        showSocials,
+        showContact,
+        showConnect: showSocials || showContact
+    };
+}
+
+function applySectionVisibility(visibility) {
+    setHidden(dom.developmentSection, !visibility.showDevelopment);
+    setHidden(dom.photographySection, !visibility.showPhotography);
+    setHidden(dom.connectSection, !visibility.showConnect);
+    setHidden(dom.sectionCards.contact, !visibility.showContact);
+    setHidden(dom.sectionCards.socials, !visibility.showSocials);
+
+    dom.navLinks.forEach((link) => {
+        const section = link.dataset.navLink;
+        const shouldShow = section === "development"
+            ? visibility.showDevelopment
+            : section === "photography"
+                ? visibility.showPhotography
+                : visibility.showConnect;
+        setHidden(link, !shouldShow);
+    });
+
+    dom.connectGrid.classList.toggle("connect-grid--single", visibility.showConnect && (visibility.showSocials !== visibility.showContact));
+}
+
+function setHidden(element, hidden) {
+    if (!element) {
+        return;
+    }
+
+    element.hidden = Boolean(hidden);
+}
+
+function hasProjectContent(projects) {
+    return Array.isArray(projects) && projects.some((project) => hasContent(project.title, project.summary, project.details, project.url, project.image));
+}
+
+function hasPhotoContent(photos) {
+    return Array.isArray(photos) && photos.some((photo) => hasContent(photo.title, photo.caption, photo.location, photo.image));
+}
+
+function hasSocialContent(socials) {
+    return Array.isArray(socials) && socials.some((social) => hasContent(social.label, social.value, social.url));
+}
+
+function hasContactContent(contact) {
+    return Boolean(contact) && hasContent(contact.heading, contact.email, contact.note, contact.location, contact.availability);
 }
 
 function seedSnow(slot, count) {
