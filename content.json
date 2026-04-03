@@ -3,7 +3,7 @@
     {
       "id": "project-private-kitty",
       "title": "Private Kitty",
-      "summary": "Custom e-commerce work shaped around a smoother shopping flow.",
+      "summary": "Interactive Site For My Client",
       "details": "Designed, developed, and customized the storefront to feel polished, clear, and easier to move through.",
       "url": "https://www.privatekitty.com/",
       "cta": "Visit site",
@@ -18,26 +18,26 @@
     {
       "id": "project-mountain-architect",
       "title": "Mountain Architect",
-      "summary": "A custom Roblox game built around your own world and systems.",
-      "details": "A space for level ideas, gameplay direction, progress screenshots, and the key systems you want to highlight as the project evolves.",
-      "url": "",
-      "cta": "See details",
-      "image": "",
+      "summary": "A custom Roblox game built around designing your very own ski resort.",
+      "details": "complex custom physics, Animation, Game design, and team collaboration",
+      "url": "https://www.roblox.com/games/112432334473369/Mountain-Architect",
+      "cta": "Play Now",
+      "image": "media/projects/2026-04-03T17-08-53-940Z-mountain-architect.png",
       "imageAlt": "Mountain Architect project preview",
       "tags": [
         "Roblox",
         "Game design",
-        "Custom build"
+        "Custom"
       ]
     },
     {
       "id": "project-the-little-cottage",
       "title": "The Little Cottage",
-      "summary": "A client website designed and developed to feel warm, simple, and easy to trust.",
-      "details": "Use this slot for a clean recap of the visual direction, what you built, and the problem the site solved for the client.",
+      "summary": "Interactive Site For My Client",
+      "details": "Information and booking site for a classic cottage in door county Wi",
       "url": "https://www.thelittlecottage.com/",
       "cta": "Visit site",
-      "image": "",
+      "image": "media/projects/2026-04-03T17-08-56-346Z-the-little-cottage.avif",
       "imageAlt": "The Little Cottage project preview",
       "tags": [
         "Client work",
@@ -48,31 +48,13 @@
   ],
   "photos": [
     {
-      "id": "photo-stillness-at-dawn",
-      "title": "Stillness at Dawn",
-      "caption": "Replace this placeholder with one of your own uploads and a short line about the scene.",
-      "location": "Add a location",
-      "accent": "Morning frost",
-      "image": "",
-      "imageAlt": "Winter photography placeholder"
-    },
-    {
-      "id": "photo-frozen-path",
-      "title": "Frozen Path",
-      "caption": "Use the admin panel to add photography notes, image uploads, and whatever context you want beside the shot.",
-      "location": "Add a location",
-      "accent": "Blue hour",
-      "image": "",
-      "imageAlt": "Winter photography placeholder"
-    },
-    {
-      "id": "photo-soft-snowline",
-      "title": "Soft Snowline",
-      "caption": "This section is ready for your actual images so the page feels personal instead of generic.",
-      "location": "Add a location",
-      "accent": "Fresh snowfall",
-      "image": "",
-      "imageAlt": "Winter photography placeholder"
+      "id": "photo-1775235809089-bvt67r",
+      "title": "No Photos Yet",
+      "caption": "",
+      "location": "",
+      "accent": "N/A",
+      "image": "media/photos/2026-04-03T17-08-56-974Z-no-photos-yet.png",
+      "imageAlt": "N/A"
     }
   ],
   "socials": [
@@ -87,13 +69,19 @@
       "label": "Discord",
       "value": "Andersbrodd",
       "url": "https://discord.com/users/Andersbrodd"
+    },
+    {
+      "id": "social-1775235809089-xs118s",
+      "label": "Roblox",
+      "value": "AndersBrodd",
+      "url": "https://www.roblox.com/users/8843215003/profile"
     }
   ],
   "contact": {
-    "heading": "Let us build something crisp and useful.",
+    "heading": "Need A Site, Game Design Consult, Or Looking For Photography?",
     "email": "Andersbrodd@icloud.com",
-    "note": "Available for website work, digital product ideas, and photography collaborations.",
-    "location": "Based in Sweden",
-    "availability": "Open for freelance and collaboration"
+    "note": "Available for website work, Game Design, and photography.",
+    "location": "Minnesota, USA",
+    "availability": "Open For Work!"
   }
 }
