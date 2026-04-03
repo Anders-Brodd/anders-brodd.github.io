@@ -1,0 +1,99 @@
+{
+  "projects": [
+    {
+      "id": "project-private-kitty",
+      "title": "Private Kitty",
+      "summary": "Custom e-commerce work shaped around a smoother shopping flow.",
+      "details": "Designed, developed, and customized the storefront to feel polished, clear, and easier to move through.",
+      "url": "https://www.privatekitty.com/",
+      "cta": "Visit site",
+      "image": "",
+      "imageAlt": "Private Kitty project preview",
+      "tags": [
+        "E-commerce",
+        "Customization",
+        "UX"
+      ]
+    },
+    {
+      "id": "project-mountain-architect",
+      "title": "Mountain Architect",
+      "summary": "A custom Roblox game built around your own world and systems.",
+      "details": "A space for level ideas, gameplay direction, progress screenshots, and the key systems you want to highlight as the project evolves.",
+      "url": "",
+      "cta": "See details",
+      "image": "",
+      "imageAlt": "Mountain Architect project preview",
+      "tags": [
+        "Roblox",
+        "Game design",
+        "Custom build"
+      ]
+    },
+    {
+      "id": "project-the-little-cottage",
+      "title": "The Little Cottage",
+      "summary": "A client website designed and developed to feel warm, simple, and easy to trust.",
+      "details": "Use this slot for a clean recap of the visual direction, what you built, and the problem the site solved for the client.",
+      "url": "https://www.thelittlecottage.com/",
+      "cta": "Visit site",
+      "image": "",
+      "imageAlt": "The Little Cottage project preview",
+      "tags": [
+        "Client work",
+        "Web design",
+        "Front end"
+      ]
+    }
+  ],
+  "photos": [
+    {
+      "id": "photo-stillness-at-dawn",
+      "title": "Stillness at Dawn",
+      "caption": "Replace this placeholder with one of your own uploads and a short line about the scene.",
+      "location": "Add a location",
+      "accent": "Morning frost",
+      "image": "",
+      "imageAlt": "Winter photography placeholder"
+    },
+    {
+      "id": "photo-frozen-path",
+      "title": "Frozen Path",
+      "caption": "Use the admin panel to add photography notes, image uploads, and whatever context you want beside the shot.",
+      "location": "Add a location",
+      "accent": "Blue hour",
+      "image": "",
+      "imageAlt": "Winter photography placeholder"
+    },
+    {
+      "id": "photo-soft-snowline",
+      "title": "Soft Snowline",
+      "caption": "This section is ready for your actual images so the page feels personal instead of generic.",
+      "location": "Add a location",
+      "accent": "Fresh snowfall",
+      "image": "",
+      "imageAlt": "Winter photography placeholder"
+    }
+  ],
+  "socials": [
+    {
+      "id": "social-github",
+      "label": "GitHub",
+      "value": "Anders-Brodd",
+      "url": "https://github.com/Anders-Brodd"
+    },
+    {
+      "id": "social-discord",
+      "label": "Discord",
+      "value": "Andersbrodd",
+      "url": "https://discord.com/users/Andersbrodd"
+    }
+  ],
+  "contact": {
+    "heading": "Let us build something crisp and useful.",
+    "email": "Andersbrodd@icloud.com",
+    "note": "Available for website work, digital product ideas, and photography collaborations.",
+    "location": "Based in Sweden",
+    "availability": "Open for freelance and collaboration"
+  }
+}

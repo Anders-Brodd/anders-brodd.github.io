@@ -3,52 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anders Brodd - Portfolio</title>
+    <title>Anders Brodd | Developer and Photographer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">Anders Brodd</div>
-        <ul class="nav-links">
-            <li><a href="#portfolio" onclick="showSection('portfolio')">Portfolio</a></li>
-            <li><a href="#socials" onclick="showSection('socials')">Socials</a></li>
-            <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="site-shell">
+        <div class="aurora aurora--one" aria-hidden="true"></div>
+        <div class="aurora aurora--two" aria-hidden="true"></div>
 
-    <main>
-        <section id="portfolio" class="page-section">
-            <h1>Portfolio</h1>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Private Kitty</h3>
-                    <p>I designed, developed, and customized the e-commerce website for this client to provide a seamless user experience. Check it out here: <a href="https://www.privatekitty.com/" target="_blank">https://www.privatekitty.com/</a></p>
+        <nav class="navbar">
+            <a class="nav-brand" href="#top">Anders Brodd</a>
+            <div class="nav-links">
+                <a href="#development">Development</a>
+                <a href="#photography">Photography</a>
+                <a href="#connect">Connect</a>
+            </div>
+        </nav>
+
+        <header class="hero" id="top">
+            <div class="hero-content">
+                <div class="hero-copy" data-reveal="up">
+                    <p class="eyebrow">Winter portfolio</p>
+                    <h1>Shipping calm interfaces and crisp visuals under a winter light.</h1>
+                    <p class="hero-text">
+                        I am Anders Brodd. I build polished digital experiences, showcase development work with detail,
+                        and frame photography with the same clean attention to atmosphere.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button--primary" href="#development">See projects</a>
+                        <a class="button button--secondary" href="#photography">View photography</a>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Mountain Architect</h3>
-                    <p>My custom-developed Roblox game.</p>
-                </div>
-                <div class="project-card">
-                    <h3>The Little Cottage</h3>
-                    <p>Designed and developed <a href="https://www.thelittlecottage.com/" target="_blank">https://www.thelittlecottage.com/</a>.</p>
+
+                <div class="hero-panel frosted-card" data-reveal="right">
+                    <p class="card-label">Live snapshot</p>
+                    <ul class="hero-metrics" id="hero-metrics"></ul>
+                    <p class="hero-note" id="hero-note"></p>
                 </div>
             </div>
-        </section>
 
-        <section id="socials" class="page-section" style="display: none;">
-            <h1>Social Links</h1>
-            <ul class="social-list">
-                <li><a href="https://github.com/Anders-Brodd" target="_blank">GitHub (Anders-Brodd)</a></li>
-                <li><a href="https://discord.com/users/Andersbrodd" target="_blank">Discord (Andersbrodd)</a></li>
-            </ul>
-        </section>
+            <div class="snow-field" data-snow="hero" aria-hidden="true"></div>
+            <a class="scroll-cue" href="#development">Scroll for the showcase</a>
+        </header>
 
-        <section id="contact" class="page-section" style="display: none;">
-            <h1>Contact Me</h1>
-            <p>If you'd like to get in touch, please send an email to:</p>
-            <a href="mailto:Andersbrodd@icloud.com" class="email-link">Andersbrodd@icloud.com</a>
-        </section>
-    </main>
+        <main>
+            <section class="content-section" id="development">
+                <div class="section-copy" data-reveal="up">
+                    <p class="eyebrow">Development</p>
+                    <h2>Projects that slide in with the context, visuals, and details beside them.</h2>
+                    <p>
+                        Each project enters as you scroll, with room for screenshots, short summaries, build notes,
+                        and a direct link out to the live work.
+                    </p>
+                </div>
+                <div class="showcase-list" id="projects-list"></div>
+            </section>
+
+            <section class="content-section content-section--gallery" id="photography">
+                <div class="section-copy" data-reveal="up">
+                    <p class="eyebrow">Photography</p>
+                    <h2>Quiet frames, cold air, and room for your own image stories.</h2>
+                    <p>
+                        Use the admin panel to upload new images or link to hosted assets, then let the gallery unfold
+                        as visitors move down the page.
+                    </p>
+                </div>
+                <div class="photo-grid" id="photos-list"></div>
+            </section>
+
+            <section class="content-section content-section--contact" id="connect">
+                <div class="section-copy" data-reveal="up">
+                    <p class="eyebrow">Connect</p>
+                    <h2>Social links and contact details stay editable from the site itself.</h2>
+                    <p>
+                        The footer sign-in opens an admin editor that updates projects, photography, socials, and your
+                        contact block directly in the GitHub Pages repository.
+                    </p>
+                </div>
+
+                <div class="connect-grid">
+                    <div class="contact-card frosted-card" data-reveal="left">
+                        <p class="card-label">Contact</p>
+                        <h3 id="contact-heading"></h3>
+                        <a class="contact-link" id="contact-email" href="#"></a>
+                        <p class="contact-note" id="contact-note"></p>
+                        <div class="contact-meta">
+                            <span id="contact-location"></span>
+                            <span id="contact-availability"></span>
+                        </div>
+                    </div>
+
+                    <div class="social-card frosted-card" data-reveal="right">
+                        <p class="card-label">Socials</p>
+                        <div class="social-list" id="socials-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-copy">
+                <p>Built for GitHub Pages with a content editor that publishes straight back to the repo.</p>
+                <p>Use the admin sign-in below to add work, upload images, and update your public info.</p>
+            </div>
+            <button class="admin-button" id="admin-toggle" type="button">Admin sign in</button>
+            <div class="snow-field snow-field--footer" data-snow="footer" aria-hidden="true"></div>
+        </footer>
+    </div>
+
+    <aside class="admin-modal" id="admin-modal" hidden>
+        <div class="admin-backdrop" data-close-admin></div>
+        <div class="admin-panel">
+            <button class="admin-close" type="button" data-close-admin aria-label="Close admin panel">Close</button>
+
+            <div class="admin-panel__header">
+                <p class="eyebrow">GitHub Pages editor</p>
+                <h2>Update the live site</h2>
+                <p>
+                    Sign in with a GitHub personal access token that can write to this repository. Changes publish to
+                    <strong>content.json</strong>, and optional image uploads are committed into the repo so the live
+                    site updates without a separate backend.
+                </p>
+            </div>
+
+            <section class="admin-auth" id="admin-auth">
+                <form class="admin-auth-form" id="admin-auth-form">
+                    <label>
+                        <span>GitHub personal access token</span>
+                        <input id="github-token" name="githubToken" type="password" placeholder="github_pat_..." autocomplete="off" required>
+                    </label>
+                    <button class="button button--primary" type="submit">Connect to GitHub</button>
+                </form>
+                <p class="admin-status" id="admin-auth-status">Not connected.</p>
+                <p class="admin-meta">Publishing target: Anders-Brodd / anders-brodd.github.io / main</p>
+            </section>
+
+            <form class="admin-editor" id="admin-editor" hidden>
+                <section class="editor-section">
+                    <div class="editor-section__header">
+                        <h3>Development projects</h3>
+                        <button class="button button--ghost" type="button" data-add-item="project">Add project</button>
+                    </div>
+                    <div id="admin-projects"></div>
+                </section>
+
+                <section class="editor-section">
+                    <div class="editor-section__header">
+                        <h3>Photography</h3>
+                        <button class="button button--ghost" type="button" data-add-item="photo">Add photo</button>
+                    </div>
+                    <div id="admin-photos"></div>
+                </section>
+
+                <section class="editor-section">
+                    <div class="editor-section__header">
+                        <h3>Socials</h3>
+                        <button class="button button--ghost" type="button" data-add-item="social">Add social</button>
+                    </div>
+                    <div id="admin-socials"></div>
+                </section>
+
+                <section class="editor-section editor-section--compact">
+                    <div class="editor-section__header">
+                        <h3>Contact details</h3>
+                    </div>
+                    <div class="editor-contact-grid">
+                        <label>
+                            <span>Heading</span>
+                            <input type="text" name="contactHeading" placeholder="Let&apos;s build something crisp.">
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="contactEmail" placeholder="name@example.com">
+                        </label>
+                        <label>
+                            <span>Location</span>
+                            <input type="text" name="contactLocation" placeholder="Based in...">
+                        </label>
+                        <label>
+                            <span>Availability</span>
+                            <input type="text" name="contactAvailability" placeholder="Open for freelance...">
+                        </label>
+                        <label class="editor-field--full">
+                            <span>Contact note</span>
+                            <textarea name="contactNote" placeholder="Short line for clients and collaborators."></textarea>
+                        </label>
+                    </div>
+                </section>
+
+                <div class="admin-actions">
+                    <button class="button button--secondary" id="preview-content" type="button">Preview changes</button>
+                    <button class="button button--primary" id="publish-content" type="submit">Publish to GitHub</button>
+                </div>
+                <p class="admin-status" id="admin-save-status">No unpublished admin changes yet.</p>
+            </form>
+        </div>
+    </aside>
 
     <script src="script.js"></script>
 </body>
