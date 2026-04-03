@@ -1,10 +1,7 @@
 {
   "profile": {
-    "introLabel": "Hello, I'm Anders Brodd",
-    "introHeading": "A web and game developer.",
-    "introText": "I do photography on the side and I'm open to commissions.",
-    "aboutHeading": "About me",
-    "aboutText": "I am Anders Brodd. I like polished front-end work, clear layouts, and photography that feels quiet and intentional. This site keeps the top simple, then moves into scrolling project and photo sections lower down the page."
+    "introHeading": "Hello, I'm Anders Brodd",
+    "introText": "A web and game developer with photography on the side."
   },
   "sections": {
     "development": true,

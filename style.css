@@ -209,18 +209,15 @@ p {
 
 .hero h1 {
     font-size: clamp(3.2rem, 8vw, 6.7rem);
-    max-width: 12ch;
+    max-width: 11ch;
 }
 
 .hero-text {
-    max-width: 58ch;
-    margin-top: 1.35rem;
-    font-size: 1.08rem;
+    max-width: 32ch;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
     color: var(--ink-soft);
-}
-
-#intro-heading {
-    max-width: 11ch;
 }
 
 .hero-actions {
@@ -315,16 +312,6 @@ p {
 
 .hero-note {
     color: var(--ink-soft);
-}
-
-.scroll-cue {
-    align-self: flex-start;
-    margin-top: 2rem;
-    padding: 0.85rem 1rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.5);
-    color: var(--ink-soft);
-    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .content-section {

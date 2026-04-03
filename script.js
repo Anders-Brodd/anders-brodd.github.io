@@ -9,11 +9,8 @@ const REPO_CONFIG = Object.freeze({
 
 const DEFAULT_CONTENT = {
     profile: {
-        introLabel: "Hello, I'm Anders Brodd",
-        introHeading: "A web and game developer.",
-        introText: "I do photography on the side and I'm open to commissions.",
-        aboutHeading: "About me",
-        aboutText: "I build clean front-end work, keep layouts focused, and want the portfolio sections below to do the heavy lifting."
+        introHeading: "Hello, I'm Anders Brodd",
+        introText: "A web and game developer with photography on the side."
     },
     sections: {
         development: true,
@@ -131,12 +128,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function cacheDom() {
-    dom.introLabel = document.getElementById("intro-label");
     dom.introHeading = document.getElementById("intro-heading");
     dom.introText = document.getElementById("intro-text");
-    dom.aboutHeading = document.getElementById("about-heading");
-    dom.aboutText = document.getElementById("about-text");
-    dom.aboutSection = document.getElementById("about");
     dom.developmentSection = document.getElementById("development");
     dom.photographySection = document.getElementById("photography");
     dom.connectSection = document.getElementById("connect");
@@ -218,11 +211,8 @@ function renderSite(content) {
 }
 
 function renderProfile(profile) {
-    dom.introLabel.textContent = profile.introLabel || "Hello, I'm Anders Brodd";
-    dom.introHeading.textContent = profile.introHeading || "A web and game developer.";
-    dom.introText.textContent = profile.introText || "I do photography on the side and I'm open to commissions.";
-    dom.aboutHeading.textContent = profile.aboutHeading || "About me";
-    dom.aboutText.textContent = profile.aboutText || "Add a short about section in the admin editor.";
+    dom.introHeading.textContent = profile.introHeading || "Hello, I'm Anders Brodd";
+    dom.introText.textContent = profile.introText || "A web and game developer with photography on the side.";
 }
 
 function renderProjects(projects) {
@@ -337,11 +327,8 @@ function renderAdminEditor() {
     dom.adminPhotos.innerHTML = renderPhotoEditors(draft.photos);
     dom.adminSocials.innerHTML = renderSocialEditors(draft.socials);
 
-    dom.adminEditor.elements.introLabel.value = draft.profile.introLabel || "";
     dom.adminEditor.elements.introHeading.value = draft.profile.introHeading || "";
     dom.adminEditor.elements.introText.value = draft.profile.introText || "";
-    dom.adminEditor.elements.aboutHeading.value = draft.profile.aboutHeading || "";
-    dom.adminEditor.elements.aboutText.value = draft.profile.aboutText || "";
     dom.adminEditor.elements.sectionDevelopment.checked = Boolean(draft.sections.development);
     dom.adminEditor.elements.sectionPhotography.checked = Boolean(draft.sections.photography);
     dom.adminEditor.elements.sectionSocials.checked = Boolean(draft.sections.socials);
@@ -787,11 +774,8 @@ function collectDraftFromEditor() {
 
     return normalizeContent({
         profile: {
-            introLabel: dom.adminEditor.elements.introLabel.value.trim(),
             introHeading: dom.adminEditor.elements.introHeading.value.trim(),
-            introText: dom.adminEditor.elements.introText.value.trim(),
-            aboutHeading: dom.adminEditor.elements.aboutHeading.value.trim(),
-            aboutText: dom.adminEditor.elements.aboutText.value.trim()
+            introText: dom.adminEditor.elements.introText.value.trim()
         },
         sections: {
             development: dom.adminEditor.elements.sectionDevelopment.checked,
@@ -832,11 +816,8 @@ function normalizeContent(content) {
 
 function normalizeProfile(profile = {}) {
     return {
-        introLabel: String(profile.introLabel || DEFAULT_CONTENT.profile.introLabel),
         introHeading: String(profile.introHeading || DEFAULT_CONTENT.profile.introHeading),
-        introText: String(profile.introText || DEFAULT_CONTENT.profile.introText),
-        aboutHeading: String(profile.aboutHeading || DEFAULT_CONTENT.profile.aboutHeading),
-        aboutText: String(profile.aboutText || DEFAULT_CONTENT.profile.aboutText)
+        introText: String(profile.introText || DEFAULT_CONTENT.profile.introText)
     };
 }
 

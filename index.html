@@ -17,7 +17,6 @@
         <nav class="navbar">
             <a class="nav-brand" href="#top">Anders Brodd</a>
             <div class="nav-links">
-                <a href="#about">About</a>
                 <a href="#development" data-nav-link="development">Portfolio</a>
                 <a href="#photography" data-nav-link="photography">Photography</a>
                 <a href="#connect" data-nav-link="connect">Connect</a>
@@ -27,23 +26,13 @@
         <header class="hero" id="top">
             <div class="hero-content hero-content--compact">
                 <div class="hero-copy" data-reveal="up">
-                    <p class="eyebrow" id="intro-label"></p>
                     <h1 id="intro-heading"></h1>
                     <p class="hero-text" id="intro-text"></p>
                 </div>
             </div>
 
             <div class="snow-field" data-snow="hero" aria-hidden="true"></div>
-            <a class="scroll-cue" href="#about">Start with the intro</a>
         </header>
-
-        <section class="content-section content-section--about" id="about">
-            <div class="about-card frosted-card" data-reveal="up">
-                <p class="eyebrow">About me</p>
-                <h2 id="about-heading"></h2>
-                <p class="about-text" id="about-text"></p>
-            </div>
-        </section>
 
         <main>
             <section class="content-section content-section--portfolio" id="development" data-section="development">
@@ -131,28 +120,16 @@
             <form class="admin-editor" id="admin-editor" hidden>
                 <section class="editor-section editor-section--compact">
                     <div class="editor-section__header">
-                        <h3>Intro and about</h3>
+                        <h3>Intro</h3>
                     </div>
                     <div class="editor-contact-grid">
                         <label>
-                            <span>Intro label</span>
-                            <input type="text" name="introLabel" placeholder="Developer and photographer">
-                        </label>
-                        <label>
                             <span>Intro heading</span>
-                            <input type="text" name="introHeading" placeholder="Short intro at the top of the page">
+                            <input type="text" name="introHeading" placeholder="Hello, I'm Anders Brodd">
                         </label>
                         <label class="editor-field--full">
                             <span>Intro text</span>
-                            <textarea name="introText" placeholder="A short intro before the portfolio starts."></textarea>
-                        </label>
-                        <label>
-                            <span>About heading</span>
-                            <input type="text" name="aboutHeading" placeholder="About me">
-                        </label>
-                        <label class="editor-field--full">
-                            <span>About text</span>
-                            <textarea name="aboutText" placeholder="A short about-me section before the portfolio animation begins."></textarea>
+                            <textarea name="introText" placeholder="A web and game developer with photography on the side."></textarea>
                         </label>
                     </div>
                 </section>
