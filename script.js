@@ -118,6 +118,7 @@ const state = {
 };
 
 const dom = {};
+let scrollTicking = false;
 
 document.addEventListener("DOMContentLoaded", async () => {
     cacheDom();
@@ -925,6 +926,19 @@ function safeParseJson(response) {
     });
 }
 
+function scheduleScrollUpdates() {
+    if (scrollTicking) {
+        return;
+    }
+
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+        updateScrollCards();
+        updatePhotoStack();
+        scrollTicking = false;
+    });
+}
+
 function setupRevealObserver() {
     if (state.revealObserver) {
         state.revealObserver.disconnect();
@@ -958,16 +972,11 @@ function setupRevealObserver() {
     );
 
     targets.forEach((element) => state.revealObserver.observe(element));
-    updateScrollCards();
-    updatePhotoStack();
-    window.removeEventListener("scroll", updateScrollCards);
-    window.addEventListener("scroll", updateScrollCards, { passive: true });
-    window.removeEventListener("scroll", updatePhotoStack);
-    window.addEventListener("scroll", updatePhotoStack, { passive: true });
-    window.removeEventListener("resize", updateScrollCards);
-    window.addEventListener("resize", updateScrollCards);
-    window.removeEventListener("resize", updatePhotoStack);
-    window.addEventListener("resize", updatePhotoStack);
+    scheduleScrollUpdates();
+    window.removeEventListener("scroll", scheduleScrollUpdates);
+    window.addEventListener("scroll", scheduleScrollUpdates, { passive: true });
+    window.removeEventListener("resize", scheduleScrollUpdates);
+    window.addEventListener("resize", scheduleScrollUpdates);
 }
 
 function updateScrollCards() {
