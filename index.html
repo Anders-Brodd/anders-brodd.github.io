@@ -3,222 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anders Brodd | Developer and Photographer</title>
+    <title>Anders Brodd - Game Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="site-shell">
-        <div class="aurora aurora--one" aria-hidden="true"></div>
-        <div class="aurora aurora--two" aria-hidden="true"></div>
 
-        <nav class="navbar">
-            <a class="nav-brand" href="#top">Anders Brodd</a>
-            <div class="nav-links">
-                <a href="#development" data-nav-link="development">Portfolio</a>
-                <a href="#photography" data-nav-link="photography">Photography</a>
-                <a href="#connect" data-nav-link="connect">Connect</a>
-            </div>
-        </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content" id="hero-content">
+            <h1>Hi, I'm Anders Brodd</h1>
+            <h2>Game Developer</h2>
+            <p>
+                I'm a game developer from Minnesota, USA. I have been developing for 4 years; it started as a fun hobby and became my full-time job. I have worked with many teams over the years and had a lot of good times coding and designing. I'm fluent in Lua, Python, HTML, JavaScript, Java, and CSS.
+            </p>
+            <p>
+                Below are my best works that I have made and am allowed to show to the public. If you would like to commission me, feel free to contact me with the info below.
+            </p>
+        </div>
+    </section>
 
-        <header class="hero" id="top">
-            <div class="hero-content hero-content--compact">
-                <div class="hero-copy" data-reveal="up">
-                    <h1 id="intro-heading">Hello, I'm Anders Brodd</h1>
-                    <p class="hero-text" id="intro-text">A web and game developer with photography on the side.</p>
+    <!-- Scroll Spacer to allow scrolling before portfolio comes in -->
+    <div class="scroll-spacer"></div>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-title">
+            <h2>My Work</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="project-card" id="mountain-architect-card">
+            <!-- Normal / Hover View -->
+            <div class="card-preview">
+                <div class="card-image-container">
+                    <img src="https://tr.rbxcdn.com/180DAY-983f8874491fd5e759d9bcdc2b3986b1/256/256/Image/Webp/noFilter" alt="Mountain Architect Logo" class="game-logo">
+                </div>
+                <div class="card-info">
+                    <h3>Mountain Architect</h3>
+                    <p class="short-desc">Mountain Architect is a Roblox game my team and I have worked on for the past year. It is a game about building and simulating a ski resort.</p>
+                    <p class="hover-desc">My role as a developer on Mountain Architect is the main scripter of the game, alongside the co-founder Moathe. We create all the intricate systems and code all the amazing ideas we get from our community.</p>
+                    <span class="click-hint">Click to view full details</span>
                 </div>
             </div>
 
-            <div class="snow-field" data-snow="hero" aria-hidden="true"></div>
-        </header>
-
-        <main>
-            <section class="content-section content-section--portfolio" id="development" data-section="development">
-                <div class="section-copy" data-reveal="up">
-                    <p class="eyebrow">Portfolio</p>
-                    <h2>Development work.</h2>
-                    <p>Each project enters from alternating sides as you scroll down the page.</p>
+            <!-- Expanded View (Hidden by default) -->
+            <div class="card-expanded">
+                <button class="close-btn" id="close-card-btn">&times;</button>
+                <div class="expanded-header">
+                    <img src="https://tr.rbxcdn.com/180DAY-155b449a383b82bebb17f13883dcfa6e/768/432/Image/Webp/noFilter" alt="Mountain Architect Gameplay" class="gameplay-image">
+                    <div class="expanded-title">
+                        <h3>Mountain Architect</h3>
+                        <a href="https://www.roblox.com/games/112432334473369/Mountain-Architect" target="_blank" class="play-btn">Play Game</a>
+                    </div>
                 </div>
-                <div class="showcase-list" id="projects-list"></div>
-            </section>
+                
+                <div class="expanded-content">
+                    <div class="full-description">
+                        <h4>About the Game</h4>
+                        <p>Mountain Architect is a Roblox game my team and I have worked on for the past year. It is a game about building and simulating a ski resort. My role as a developer on Mountain Architect is the main scripter of the game, alongside the co-founder Moathe. We create all the intricate systems and code all the amazing ideas we get from our community.</p>
+                    </div>
 
-            <section class="content-section content-section--gallery" id="photography" data-section="photography">
-                <div class="section-copy" data-reveal="up">
-                    <p class="eyebrow">Photography</p>
-                    <h2>Photography on the side.</h2>
-                    <p>The photos sit in a stack, and each next image takes over as you keep scrolling.</p>
-                </div>
-                <div class="photo-grid" id="photos-list"></div>
-            </section>
-
-            <section class="content-section content-section--contact" id="connect" data-section="connect">
-                <div class="section-copy" data-reveal="up">
-                    <p class="eyebrow">Connect</p>
-                    <h2>Contact and socials.</h2>
-                    <p>Contact comes first, then the socials glide up from the bottom as the section enters.</p>
-                </div>
-
-                <div class="connect-grid" id="connect-grid">
-                    <div class="contact-card frosted-card" data-reveal="left" data-section-card="contact">
-                        <p class="card-label">Contact</p>
-                        <h3 id="contact-heading"></h3>
-                        <a class="contact-link" id="contact-email" href="#"></a>
-                        <p class="contact-note" id="contact-note"></p>
-                        <div class="contact-meta" id="contact-meta">
-                            <span id="contact-location"></span>
-                            <span id="contact-availability"></span>
+                    <div class="game-stats">
+                        <h4>Game Statistics</h4>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-value">~7,000</span>
+                                <span class="stat-label">Peak DAU</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-value">2,063</span>
+                                <span class="stat-label">Average DAU</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-value">610K+</span>
+                                <span class="stat-label">Revenue (Robux)</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="social-card frosted-card" data-reveal="right" data-section-card="socials">
-                        <p class="card-label">Socials</p>
-                        <div class="social-list" id="socials-list"></div>
+                    <div class="analytics-section">
+                        <h4>Analytics & Growth</h4>
+                        <div class="graphs-container">
+                            <div class="graph-item">
+                                <img src="images/dau.png" alt="Daily Active Users Graph" style="width: 100%; border-radius: 8px; border: 2px solid #FF8C00; margin-bottom: 1rem;">
+                                <p class="graph-explanation"><strong>Daily Active Users (DAU):</strong> We surged to a peak of nearly 7,000 concurrent DAU during our major release window and currently average over 2,000. PC users consistently make up our largest and most engaged demographic.</p>
+                            </div>
+                            <div class="graph-item">
+                                <img src="images/revenue.png" alt="Total Revenue Graph" style="width: 100%; border-radius: 8px; border: 2px solid #FF8C00; margin-bottom: 1rem;">
+                                <p class="graph-explanation"><strong>Revenue Growth:</strong> The game has generated over 610,000 Robux in total revenue over this period, with massive spikes perfectly correlating with our peak player counts in late March and early April.</p>
+                            </div>
+                            <div class="graph-item">
+                                <img src="images/playtime.png" alt="Average Playtime Graph" style="width: 100%; border-radius: 8px; border: 2px solid #FF8C00; margin-bottom: 1rem;">
+                                <p class="graph-explanation"><strong>Engagement:</strong> Players spend an average of 18.3 minutes per session. This high playtime remains consistent across all platforms, proving that our complex building systems successfully keep players engaged.</p>
+                            </div>
+                            <div class="graph-item">
+                                <img src="images/arppu.png" alt="ARPPU Graph" style="width: 100%; border-radius: 8px; border: 2px solid #FF8C00; margin-bottom: 1rem;">
+                                <p class="graph-explanation"><strong>Monetization (ARPPU):</strong> Our Average Revenue Per Paying User remains exceptionally strong at 378.75 Robux, showing that our community finds high value in the premium features and game passes we've implemented.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <div class="footer-copy">
-                <p class="footer-brand">AndersBrodd, LLC</p>
-                <p class="footer-legal">Copyright © 2026 AndersBrodd, LLC. All rights reserved.</p>
             </div>
-            <button class="admin-button" id="admin-toggle" type="button">Admin sign in</button>
-            <div class="snow-field snow-field--footer" data-snow="footer" aria-hidden="true"></div>
-        </footer>
-    </div>
-
-    <aside class="admin-modal" id="admin-modal" hidden>
-        <div class="admin-backdrop" data-close-admin></div>
-        <div class="admin-panel">
-            <button class="admin-close" type="button" data-close-admin aria-label="Close admin panel">Close</button>
-
-            <div class="admin-panel__header">
-                <p class="eyebrow">GitHub Pages editor</p>
-                <h2>Update the live site</h2>
-                <p>
-                    Sign in with a GitHub personal access token that can write to this repository. Changes publish to
-                    <strong>content.json</strong>, and optional image uploads are committed into the repo so the live
-                    site updates without a separate backend.
-                </p>
-            </div>
-
-            <section class="admin-auth" id="admin-auth">
-                <form class="admin-auth-form" id="admin-auth-form">
-                    <label>
-                        <span>GitHub personal access token</span>
-                        <input id="github-token" name="githubToken" type="password" placeholder="github_pat_..." autocomplete="off" required>
-                    </label>
-                    <button class="button button--primary" type="submit">Connect to GitHub</button>
-                </form>
-                <p class="admin-status" id="admin-auth-status">Not connected.</p>
-                <p class="admin-meta">Publishing target: Anders-Brodd / anders-brodd.github.io / main</p>
-            </section>
-
-            <form class="admin-editor" id="admin-editor" hidden>
-                <section class="editor-section editor-section--compact">
-                    <div class="editor-section__header">
-                        <h3>Intro</h3>
-                    </div>
-                    <div class="editor-contact-grid">
-                        <label>
-                            <span>Intro heading</span>
-                            <input type="text" name="introHeading" placeholder="Hello, I'm Anders Brodd">
-                        </label>
-                        <label class="editor-field--full">
-                            <span>Intro text</span>
-                            <textarea name="introText" placeholder="A web and game developer with photography on the side."></textarea>
-                        </label>
-                    </div>
-                </section>
-
-                <section class="editor-section editor-section--compact">
-                    <div class="editor-section__header">
-                        <h3>Section visibility</h3>
-                    </div>
-                    <div class="editor-toggle-grid">
-                        <label class="toggle-row">
-                            <span>Development portfolio</span>
-                            <input type="checkbox" name="sectionDevelopment">
-                        </label>
-                        <label class="toggle-row">
-                            <span>Photography</span>
-                            <input type="checkbox" name="sectionPhotography">
-                        </label>
-                        <label class="toggle-row">
-                            <span>Socials</span>
-                            <input type="checkbox" name="sectionSocials">
-                        </label>
-                        <label class="toggle-row">
-                            <span>Contact</span>
-                            <input type="checkbox" name="sectionContact">
-                        </label>
-                    </div>
-                    <p class="admin-meta">Enabled sections still hide automatically if they are empty.</p>
-                </section>
-
-                <section class="editor-section">
-                    <div class="editor-section__header">
-                        <h3>Development projects</h3>
-                        <button class="button button--ghost" type="button" data-add-item="project">Add project</button>
-                    </div>
-                    <div id="admin-projects"></div>
-                </section>
-
-                <section class="editor-section">
-                    <div class="editor-section__header">
-                        <h3>Photography</h3>
-                        <button class="button button--ghost" type="button" data-add-item="photo">Add photo</button>
-                    </div>
-                    <div id="admin-photos"></div>
-                </section>
-
-                <section class="editor-section">
-                    <div class="editor-section__header">
-                        <h3>Socials</h3>
-                        <button class="button button--ghost" type="button" data-add-item="social">Add social</button>
-                    </div>
-                    <div id="admin-socials"></div>
-                </section>
-
-                <section class="editor-section editor-section--compact">
-                    <div class="editor-section__header">
-                        <h3>Contact details</h3>
-                    </div>
-                    <div class="editor-contact-grid">
-                        <label>
-                            <span>Heading</span>
-                            <input type="text" name="contactHeading" placeholder="Let&apos;s build something crisp.">
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="email" name="contactEmail" placeholder="name@example.com">
-                        </label>
-                        <label>
-                            <span>Location</span>
-                            <input type="text" name="contactLocation" placeholder="Based in...">
-                        </label>
-                        <label>
-                            <span>Availability</span>
-                            <input type="text" name="contactAvailability" placeholder="Open for freelance...">
-                        </label>
-                        <label class="editor-field--full">
-                            <span>Contact note</span>
-                            <textarea name="contactNote" placeholder="Short line for clients and collaborators."></textarea>
-                        </label>
-                    </div>
-                </section>
-
-                <div class="admin-actions">
-                    <button class="button button--secondary" id="preview-content" type="button">Preview changes</button>
-                    <button class="button button--primary" id="publish-content" type="submit">Publish to GitHub</button>
-                </div>
-                <p class="admin-status" id="admin-save-status">No unpublished admin changes yet.</p>
-            </form>
         </div>
-    </aside>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Looking to hire me?</h2>
+        <p>Contact me below to discuss your next project.</p>
+        <div class="contact-methods">
+            <div class="contact-card">
+                <span class="method-title">Email</span>
+                <span class="method-value">Anders@AndersBrodd.Dev</span>
+                <a href="mailto:Anders@AndersBrodd.Dev" class="contact-btn">Send Email</a>
+            </div>
+            <div class="contact-card">
+                <span class="method-title">Discord</span>
+                <span class="method-value">AndersBrodd</span>
+                <a href="https://discord.com/users/AndersBrodd" class="contact-btn">DM Me</a>
+            </div>
+            <div class="contact-card">
+                <span class="method-title">Roblox</span>
+                <span class="method-value">@AndersBrodd</span>
+                <a href="https://www.roblox.com/users/8843215003/profile" target="_blank" class="contact-btn">View Profile</a>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
