@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pricesInputsHtml += `
                     <label style="display:flex; flex-direction:column; align-items:flex-start; margin-right:10px;">
                         <span style="font-size:0.7rem; color:var(--text-muted);">${c}</span>
-                        <input type="number" data-item="${name}" data-currency="${c}" value="${currentVal}" min="0" style="width:60px;">
+                        <input type="number" data-item="${name}" data-currency="${c}" value="${currentVal}" min="0" step="0.01" style="width:60px;">
                     </label>
                 `;
             });
