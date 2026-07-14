@@ -375,3 +375,288 @@ p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
         gap: 1rem;
     }
 }
+
+/* Market Page Styles */
+.market-body {
+    padding-top: 4rem;
+}
+
+.market-description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.market-card {
+    background-color: var(--card-bg);
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.market-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.market-card.out-of-stock {
+    opacity: 0.6;
+    border-color: #550000;
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem auto;
+}
+
+.resource-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.stock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    color: red;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: 2px solid red;
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.currency-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 0.2rem;
+}
+
+.currency-icon.inline {
+    display: inline-block;
+}
+
+.stock-info {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.close-modal:hover {
+    color: var(--accent);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.tax-calculator {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+}
+
+.tax-info-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.calc-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.calc-form input, .calc-form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    background-color: #000;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.calc-results {
+    background-color: #000;
+    padding: 1.5rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.result-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: rgba(255, 106, 0, 0.1);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+}
+
+.highlight {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.sidetax-note {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Admin Panel */
+.admin-panel {
+    background-color: #1a0a00;
+    border-bottom: 2px solid var(--accent);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.action-btn {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.action-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.admin-hint {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.admin-items-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.admin-item-row {
+    background-color: #000;
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.admin-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.admin-controls label {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-controls input, .admin-controls select {
+    background-color: #111;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.4rem;
+    border-radius: 4px;
+    width: 80px;
+}
+
+.admin-controls select {
+    width: auto;
+}
+
+#export-textarea {
+    width: 100%;
+    height: 200px;
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #333;
+    padding: 1rem;
+    font-family: monospace;
+    border-radius: 6px;
+    margin: 1rem 0;
+    resize: vertical;
+}

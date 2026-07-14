@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Market</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="market-body">
+
+    <!-- Admin Panel (Hidden by default, unlocked via URL parameter ?admin=true) -->
+    <div id="admin-panel" class="admin-panel hidden">
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <button id="export-config-btn" class="action-btn">Export Config</button>
+        </div>
+        <p class="admin-hint">Adjust prices and stock below. When done, click "Export Config" to get the code to save to your GitHub repo.</p>
+        <div id="admin-items-list" class="admin-items-list">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="export-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Export Configuration</h2>
+            <p>Copy the code below and paste it into your <code>market-config.js</code> file.</p>
+            <textarea id="export-textarea" readonly></textarea>
+            <button id="copy-export-btn" class="action-btn">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <!-- Main Market Section -->
+    <section class="market-section" id="market">
+        <div class="section-title">
+            <h2>Resource Market</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <p class="market-description">Click on a resource to view pricing and calculate your PVP trade costs.</p>
+
+        <div class="market-grid" id="market-grid">
+            <!-- Items populated by JS -->
+        </div>
+    </section>
+
+    <!-- Item Detail Modal -->
+    <div id="item-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <img id="modal-item-icon" src="" alt="Item Icon" class="modal-icon">
+                <h2 id="modal-item-name">Item Name</h2>
+            </div>
+            
+            <div class="modal-info">
+                <p><strong>Stock:</strong> <span id="modal-item-stock"></span></p>
+                <p><strong>Minimum Purchase:</strong> <span id="modal-item-min"></span></p>
+                <p><strong>Price (per unit):</strong> <span id="modal-item-price"></span> <img id="modal-currency-icon" class="currency-icon inline" src="" alt="Currency"></p>
+            </div>
+
+            <div class="tax-calculator">
+                <h3>PVP Trade Cost Calculator</h3>
+                <p class="tax-info-text">When trading elite boss materials, you must abuse PVP drops. A tax applies depending on the gear crafted.</p>
+                
+                <div class="calc-form">
+                    <label for="purchase-amount">Amount you want to buy:</label>
+                    <input type="number" id="purchase-amount" min="1" value="1">
+
+                    <label for="gear-type">Gear type to craft & drop:</label>
+                    <select id="gear-type">
+                        <option value="2">Helmet (n=2, 50% Tax)</option>
+                        <option value="3">Pants (n=3, 33% Tax)</option>
+                        <option value="4" selected>Shield (n=4, 25% Tax)</option>
+                        <option value="5">Spear (n=5, 20% Tax)</option>
+                        <option value="10">Musket (Max 10 units, n=10, 10% Tax)</option>
+                    </select>
+                </div>
+
+                <div class="calc-results">
+                    <h4>What you really need to spend:</h4>
+                    <p>Total Base Price: <span id="calc-base-total"></span> <img id="calc-currency-icon-1" class="currency-icon inline" src="" alt=""></p>
+                    <div class="result-box">
+                        <p>You must craft <strong id="calc-gear-amount" class="highlight">0</strong> gear item(s).</p>
+                        <p>Total raw materials needed: <strong id="calc-raw-materials" class="highlight">0</strong> <img id="calc-currency-icon-2" class="currency-icon inline" src="" alt=""></p>
+                    </div>
+                    <p class="sidetax-note">Note: Certain items (like Vicanite) may have forced side taxes. This calculator only accounts for the main gear trade efficiency tax.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="market-config.js"></script>
+    <script src="market.js"></script>
+</body>
+</html>
