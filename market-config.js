@@ -44,7 +44,7 @@ window.marketConfig = {
                 "adamantite": 0,
                 "vicanite": 0
             },
-            "stock": 44000,
+            "stock": 0,
             "minPurchase": 100
         },
         "Logs": {
@@ -56,7 +56,7 @@ window.marketConfig = {
                 "adamantite": 0,
                 "vicanite": 0
             },
-            "stock": 30000,
+            "stock": 3000,
             "minPurchase": 100
         },
         "Copper": {
@@ -80,7 +80,7 @@ window.marketConfig = {
                 "adamantite": 0,
                 "vicanite": 0
             },
-            "stock": 3000,
+            "stock": 0,
             "minPurchase": 100
         },
         "Meat": {
@@ -104,7 +104,7 @@ window.marketConfig = {
                 "adamantite": 0,
                 "vicanite": 0
             },
-            "stock": 2000,
+            "stock": 0,
             "minPurchase": 100
         },
         "Bluesteel": {
