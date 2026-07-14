@@ -13,106 +13,106 @@ window.marketConfig = {
     "items": {
         "Steel": {
             "prices": {
-                "Coal": 30,
-                "Bluesteel": 1,
-                "Darksteel": 0.85,
-                "steel": 1,
-                "adamantite": 0.1,
-                "vicanite": 0.3
+                "Coal": 7.5,
+                "Bluesteel": 1.88,
+                "Darksteel": 1.59,
+                "steel": 0,
+                "adamantite": 0.19,
+                "vicanite": 0.56
             },
-            "stock": 100,
+            "stock": 1200,
             "minPurchase": 100
         },
         "Iron": {
             "prices": {
-                "Coal": 15,
-                "Bluesteel": 0.5,
-                "Darksteel": 0.42,
-                "steel": 0.5,
-                "adamantite": 0.05,
-                "vicanite": 0.15
+                "Coal": 0.3,
+                "Bluesteel": 0.07,
+                "Darksteel": 0.06,
+                "steel": 0.04,
+                "adamantite": 0.01,
+                "vicanite": 0.02
             },
-            "stock": 100,
+            "stock": 800,
             "minPurchase": 100
         },
         "Stone": {
             "prices": {
-                "Coal": 12,
-                "Bluesteel": 0.4,
-                "Darksteel": 0.34,
-                "steel": 0.4,
-                "adamantite": 0.04,
-                "vicanite": 0.12
+                "Coal": 1.2,
+                "Bluesteel": 0.3,
+                "Darksteel": 0.25,
+                "steel": 0.16,
+                "adamantite": 0.03,
+                "vicanite": 0.09
             },
-            "stock": 100,
+            "stock": 44000,
             "minPurchase": 100
         },
         "Logs": {
             "prices": {
-                "Coal": 12,
-                "Bluesteel": 0.4,
-                "Darksteel": 0.34,
-                "steel": 0.4,
-                "adamantite": 0.04,
-                "vicanite": 0.12
+                "Coal": 1,
+                "Bluesteel": 0.25,
+                "Darksteel": 0.21,
+                "steel": 0.13,
+                "adamantite": 0.03,
+                "vicanite": 0.08
             },
-            "stock": 100,
+            "stock": 30000,
             "minPurchase": 100
         },
         "Copper": {
             "prices": {
-                "Coal": 15,
-                "Bluesteel": 0.5,
-                "Darksteel": 0.42,
-                "steel": 0.5,
-                "adamantite": 0.05,
-                "vicanite": 0.15
+                "Coal": 0,
+                "Bluesteel": 0,
+                "Darksteel": 0,
+                "steel": 0,
+                "adamantite": 0,
+                "vicanite": 0
             },
-            "stock": 100,
+            "stock": 0,
             "minPurchase": 100
         },
         "Coal": {
             "prices": {
                 "Coal": 0,
-                "Bluesteel": 0.03,
-                "Darksteel": 0.03,
-                "steel": 0.03,
-                "adamantite": 0,
-                "vicanite": 0.01
+                "Bluesteel": 0.5,
+                "Darksteel": 0.21,
+                "steel": 0.13,
+                "adamantite": 0.03,
+                "vicanite": 0.08
             },
-            "stock": 100,
+            "stock": 3000,
             "minPurchase": 100
         },
         "Meat": {
             "prices": {
-                "Coal": 120,
-                "Bluesteel": 4,
-                "Darksteel": 3.4,
-                "steel": 4,
-                "adamantite": 0.4,
-                "vicanite": 1.2
+                "Coal": 1,
+                "Bluesteel": 0.25,
+                "Darksteel": 0.21,
+                "steel": 0.13,
+                "adamantite": 0.03,
+                "vicanite": 0.08
             },
-            "stock": 100,
+            "stock": 10000,
             "minPurchase": 100
         },
         "Sulfur": {
             "prices": {
                 "Coal": 6,
-                "Bluesteel": 0.2,
-                "Darksteel": 0.17,
-                "steel": 0.2,
-                "adamantite": 0.02,
-                "vicanite": 0.06
+                "Bluesteel": 1.5,
+                "Darksteel": 1.27,
+                "steel": 0.8,
+                "adamantite": 0.15,
+                "vicanite": 0.45
             },
-            "stock": 100,
+            "stock": 2000,
             "minPurchase": 100
         },
         "Bluesteel": {
             "prices": {
-                "Coal": 30,
+                "Coal": 4,
                 "Bluesteel": 0,
                 "Darksteel": 0.85,
-                "steel": 1,
+                "steel": 0.53,
                 "adamantite": 0.1,
                 "vicanite": 0.3
             },
@@ -121,14 +121,14 @@ window.marketConfig = {
         },
         "Darksteel": {
             "prices": {
-                "Coal": 35.29,
+                "Coal": 4.72,
                 "Bluesteel": 1.18,
                 "Darksteel": 0,
-                "steel": 1.18,
+                "steel": 0.63,
                 "adamantite": 0.12,
                 "vicanite": 0.35
             },
-            "stock": 100,
+            "stock": 0,
             "minPurchase": 100
         }
     }
