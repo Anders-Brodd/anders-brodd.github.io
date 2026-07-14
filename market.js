@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (const [curr, price] of Object.entries(data.prices || {})) {
                 if (price > 0) {
                     hasPrice = true;
-                    pricesHtml += `<span style="display:inline-block; margin-right:10px; margin-bottom:5px; background:rgba(0,0,0,0.5); padding:2px 6px; border-radius:4px; border:1px solid #333;">${price} <img src="images/${curr}.png" alt="${curr}" class="currency-icon inline" onerror="this.src='https://via.placeholder.com/20?text=${curr}'"></span>`;
+                    pricesHtml += `<span style="display:inline-block; margin-right:10px; margin-bottom:5px; background:rgba(0,0,0,0.5); padding:2px 6px; border-radius:4px; border:1px solid #333;">${price} <img src="images/${curr.toLowerCase()}.png" alt="${curr}" class="currency-icon inline" onerror="this.src='https://via.placeholder.com/20?text=${curr}'"></span>`;
                 }
             }
             if (!hasPrice) {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             card.innerHTML = `
                 <div class="card-image-wrapper">
-                    <img src="images/${name}.png" alt="${name}" class="resource-icon" onerror="this.src='https://via.placeholder.com/150?text=${name}'">
+                    <img src="images/${name.toLowerCase()}.png" alt="${name}" class="resource-icon" onerror="this.src='https://via.placeholder.com/150?text=${name}'">
                     ${data.stock <= 0 ? '<div class="stock-overlay">NO STOCK</div>' : ''}
                 </div>
                 <h3>${name}</h3>
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openItemModal(name, data) {
         currentItemName = name;
-        document.getElementById('modal-item-icon').src = `images/${name}.png`;
+        document.getElementById('modal-item-icon').src = `images/${name.toLowerCase()}.png`;
         document.getElementById('modal-item-icon').onerror = function() { this.src = `https://via.placeholder.com/60?text=${name}`; };
         document.getElementById('modal-item-name').innerText = name;
         document.getElementById('modal-item-stock').innerText = data.stock;
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('calc-base-total').innerText = baseTotal;
 
         // Set currency icons
-        const cIconSrc = `images/${selectedCurrency}.png`;
+        const cIconSrc = `images/${selectedCurrency.toLowerCase()}.png`;
         document.getElementById('calc-currency-icon-1').src = cIconSrc;
         document.getElementById('calc-currency-icon-1').onerror = function() { this.src = `https://via.placeholder.com/20?text=${selectedCurrency}`; };
         document.getElementById('calc-currency-icon-2').src = cIconSrc;
