@@ -17,8 +17,8 @@ window.marketConfig = {
                 "Bluesteel": 1.88,
                 "Darksteel": 1.59,
                 "steel": 0,
-                "adamantite": 0.19,
-                "vicanite": 0.56
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 1200,
             "minPurchase": 100
@@ -29,8 +29,8 @@ window.marketConfig = {
                 "Bluesteel": 0.07,
                 "Darksteel": 0.06,
                 "steel": 0.04,
-                "adamantite": 0.01,
-                "vicanite": 0.02
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 800,
             "minPurchase": 100
@@ -41,8 +41,8 @@ window.marketConfig = {
                 "Bluesteel": 0.3,
                 "Darksteel": 0.25,
                 "steel": 0.16,
-                "adamantite": 0.03,
-                "vicanite": 0.09
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 44000,
             "minPurchase": 100
@@ -53,8 +53,8 @@ window.marketConfig = {
                 "Bluesteel": 0.25,
                 "Darksteel": 0.21,
                 "steel": 0.13,
-                "adamantite": 0.03,
-                "vicanite": 0.08
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 30000,
             "minPurchase": 100
@@ -77,8 +77,8 @@ window.marketConfig = {
                 "Bluesteel": 0.5,
                 "Darksteel": 0.21,
                 "steel": 0.13,
-                "adamantite": 0.03,
-                "vicanite": 0.08
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 3000,
             "minPurchase": 100
@@ -89,8 +89,8 @@ window.marketConfig = {
                 "Bluesteel": 0.25,
                 "Darksteel": 0.21,
                 "steel": 0.13,
-                "adamantite": 0.03,
-                "vicanite": 0.08
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 10000,
             "minPurchase": 100
@@ -101,8 +101,8 @@ window.marketConfig = {
                 "Bluesteel": 1.5,
                 "Darksteel": 1.27,
                 "steel": 0.8,
-                "adamantite": 0.15,
-                "vicanite": 0.45
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 2000,
             "minPurchase": 100
@@ -113,8 +113,8 @@ window.marketConfig = {
                 "Bluesteel": 0,
                 "Darksteel": 0.85,
                 "steel": 0.53,
-                "adamantite": 0.1,
-                "vicanite": 0.3
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 100,
             "minPurchase": 100
@@ -125,8 +125,8 @@ window.marketConfig = {
                 "Bluesteel": 1.18,
                 "Darksteel": 0,
                 "steel": 0.63,
-                "adamantite": 0.12,
-                "vicanite": 0.35
+                "adamantite": 0,
+                "vicanite": 0
             },
             "stock": 0,
             "minPurchase": 100
