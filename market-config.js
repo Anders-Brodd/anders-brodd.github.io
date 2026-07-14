@@ -14,15 +14,15 @@ window.marketConfig = {
     ],
     // The items you are selling
     items: {
-        "Steel": { price: 10, currency: "Coal", stock: 100, minPurchase: 1 },
-        "Iron": { price: 10, currency: "Coal", stock: 100, minPurchase: 1 },
-        "Stone": { price: 10, currency: "Coal", stock: 100, minPurchase: 1 },
-        "Logs": { price: 10, currency: "Coal", stock: 100, minPurchase: 1 },
-        "Copper": { price: 10, currency: "Coal", stock: 100, minPurchase: 1 },
-        "Coal": { price: 10, currency: "steel", stock: 100, minPurchase: 1 },
-        "Meat": { price: 10, currency: "Coal", stock: 100, minPurchase: 1 },
-        "Sulfur": { price: 10, currency: "Coal", stock: 100, minPurchase: 1 },
-        "Bluesteel": { price: 10, currency: "Darksteel", stock: 10, minPurchase: 1 },
-        "Darksteel": { price: 10, currency: "Bluesteel", stock: 10, minPurchase: 1 }
+        "Steel": { prices: { "Coal": 10, "Bluesteel": 0, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Iron": { prices: { "Coal": 10, "Bluesteel": 0, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Stone": { prices: { "Coal": 10, "Bluesteel": 0, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Logs": { prices: { "Coal": 10, "Bluesteel": 0, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Copper": { prices: { "Coal": 10, "Bluesteel": 0, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Coal": { prices: { "Coal": 0, "Bluesteel": 0, "Darksteel": 0, "steel": 10, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Meat": { prices: { "Coal": 10, "Bluesteel": 0, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Sulfur": { prices: { "Coal": 10, "Bluesteel": 0, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 100, minPurchase: 1 },
+        "Bluesteel": { prices: { "Coal": 0, "Bluesteel": 0, "Darksteel": 10, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 10, minPurchase: 1 },
+        "Darksteel": { prices: { "Coal": 0, "Bluesteel": 10, "Darksteel": 0, "steel": 0, "adamantite": 0, "vicanite": 0, "wood": 0 }, stock: 10, minPurchase: 1 }
     }
 };

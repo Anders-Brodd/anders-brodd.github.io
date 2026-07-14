@@ -17,7 +17,7 @@
             <h2>Admin Dashboard</h2>
             <button id="export-config-btn" class="action-btn">Export Config</button>
         </div>
-        <p class="admin-hint">Adjust prices and stock below. When done, click "Export Config" to get the code to save to your GitHub repo.</p>
+        <p class="admin-hint">Adjust prices and stock below. Set a currency to 0 to disable it for that item. When done, click "Export Config" to get the code to save to your GitHub repo.</p>
         <div id="admin-items-list" class="admin-items-list">
             <!-- Populated by JS -->
         </div>
@@ -41,7 +41,7 @@
             <div class="divider"></div>
         </div>
         
-        <p class="market-description">Click on a resource to view pricing and calculate your PVP trade costs.</p>
+        <p class="market-description">Click on a resource to view pricing and calculate your trade costs.</p>
 
         <div class="market-grid" id="market-grid">
             <!-- Items populated by JS -->
@@ -60,35 +60,47 @@
             <div class="modal-info">
                 <p><strong>Stock:</strong> <span id="modal-item-stock"></span></p>
                 <p><strong>Minimum Purchase:</strong> <span id="modal-item-min"></span></p>
-                <p><strong>Price (per unit):</strong> <span id="modal-item-price"></span> <img id="modal-currency-icon" class="currency-icon inline" src="" alt="Currency"></p>
             </div>
 
             <div class="tax-calculator">
-                <h3>PVP Trade Cost Calculator</h3>
-                <p class="tax-info-text">When trading elite boss materials, you must abuse PVP drops. A tax applies depending on the gear crafted.</p>
+                <h3>Trade Cost Calculator</h3>
                 
                 <div class="calc-form">
                     <label for="purchase-amount">Amount you want to buy:</label>
                     <input type="number" id="purchase-amount" min="1" value="1">
 
-                    <label for="gear-type">Gear type to craft & drop:</label>
-                    <select id="gear-type">
-                        <option value="2">Helmet (n=2, 50% Tax)</option>
-                        <option value="3">Pants (n=3, 33% Tax)</option>
-                        <option value="4" selected>Shield (n=4, 25% Tax)</option>
-                        <option value="5">Spear (n=5, 20% Tax)</option>
-                        <option value="10">Musket (Max 10 units, n=10, 10% Tax)</option>
+                    <label for="currency-select">Pay with:</label>
+                    <select id="currency-select">
+                        <!-- Populated by JS -->
                     </select>
+
+                    <div id="gear-select-container" class="hidden">
+                        <label for="gear-type">Gear type to craft & drop:</label>
+                        <select id="gear-type">
+                            <option value="2">Helmet (n=2, 50% Tax)</option>
+                            <option value="3">Pants (n=3, 33% Tax)</option>
+                            <option value="4" selected>Shield (n=4, 25% Tax)</option>
+                            <option value="5">Spear (n=5, 20% Tax)</option>
+                            <option value="10">Musket (Max 10 units, n=10, 10% Tax)</option>
+                        </select>
+                        <p class="tax-info-text">Since you are using a taxed currency, you must abuse PVP drops. A tax applies depending on the gear crafted.</p>
+                    </div>
                 </div>
 
                 <div class="calc-results">
                     <h4>What you really need to spend:</h4>
                     <p>Total Base Price: <span id="calc-base-total"></span> <img id="calc-currency-icon-1" class="currency-icon inline" src="" alt=""></p>
-                    <div class="result-box">
+                    
+                    <div id="taxed-result-box" class="result-box hidden">
                         <p>You must craft <strong id="calc-gear-amount" class="highlight">0</strong> gear item(s).</p>
                         <p>Total raw materials needed: <strong id="calc-raw-materials" class="highlight">0</strong> <img id="calc-currency-icon-2" class="currency-icon inline" src="" alt=""></p>
+                        <p class="sidetax-note">Note: Certain items (like Vicanite) may have forced side taxes. This calculator only accounts for the main gear trade efficiency tax.</p>
                     </div>
-                    <p class="sidetax-note">Note: Certain items (like Vicanite) may have forced side taxes. This calculator only accounts for the main gear trade efficiency tax.</p>
+                    
+                    <div id="untaxed-result-box" class="result-box hidden">
+                        <p>This is a 1-to-1 trade (No PVP drop tax).</p>
+                        <p>Total materials needed: <strong id="calc-untaxed-materials" class="highlight">0</strong> <img id="calc-currency-icon-3" class="currency-icon inline" src="" alt=""></p>
+                    </div>
                 </div>
             </div>
         </div>

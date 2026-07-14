@@ -474,8 +474,8 @@ p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
     z-index: 1000;
 }
 
-.modal.hidden {
-    display: none;
+.hidden {
+    display: none !important;
 }
 
 .modal-content {
